@@ -85,3 +85,11 @@
     </footer>
 </body>
 </html>
+.content-section h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.content-section p {
+    margin-bottom: 18px;
+}
