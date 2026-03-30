@@ -3,85 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallertau Wagyu</title>
-    <meta name="description" content="Wagyu Rinderzucht aus der Hallertau. Informationen zu unserem Betrieb, unserer Haltung und Kontaktmöglichkeiten.">
+    <title>Hallertau Wagyu | Wagyu Rinderzucht aus der Hallertau</title>
+    <meta name="description" content="Hallertau Wagyu – Wagyu Rinderzucht aus der Hallertau. Informationen zu unserem Betrieb, unserer Haltung und zum Fleischverkauf.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header class="site-header">
-        <div class="container">
-            <div class="brand">
-                <h1>Hallertau Wagyu</h1>
-                <p>Wagyu Rinderzucht aus der Hallertau</p>
-            </div>
+        <div class="container header-flex">
+            <a href="index.html" class="brand-link">
+                <div class="brand">
+                    <h1>Hallertau Wagyu</h1>
+                    <p>Wagyu Rinderzucht aus der Hallertau</p>
+                </div>
+            </a>
             <nav class="site-nav">
-                <a href="index.html">Start</a>
+                <a href="index.html" aria-current="page">Start</a>
                 <a href="betrieb.html">Betrieb</a>
                 <a href="wagyu.html">Wagyu</a>
+                <a href="fleisch.html">Fleischverkauf</a>
                 <a href="kontakt.html">Kontakt</a>
             </nav>
+            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Wagyu mit Fokus auf Qualität, Tierwohl und nachhaltige Haltung</h2>
-                <p>
-                    Auf unserem Betrieb in der Hallertau widmen wir uns der Zucht und Haltung von Wagyu-Rindern
-                    mit viel Ruhe, Weidegang und hoher Sorgfalt.
+
+        <section class="hero-main">
+            <div class="hero-content">
+                <img class="hero-logo" src="images/logo_transparent.png" alt="Hallertau Wagyu">
+                <span class="eyebrow">Hallertau Wagyu</span>
+                <h2>Exklusives Wagyu<br>aus der Hallertau</h2>
+                <p class="hero-sub">
+                    Regional. Nachhaltig. Mit Fokus auf Tierwohl,
+                    Ruhe und höchste Fleischqualität.
                 </p>
-                <a class="button" href="kontakt.html">Jetzt Kontakt aufnehmen</a>
+                <div class="button-group">
+                    <a class="button" href="betrieb.html">Unser Betrieb</a>
+                    <a class="button button-ghost" href="fleisch.html">Fleischverkauf</a>
+                </div>
             </div>
         </section>
 
-        <section class="content-section">
+        <div class="announcement-bar">
             <div class="container">
+                <p>Erster Fleischverkauf in Vorbereitung &ndash; Bei Interesse können Sie sich bereits jetzt <a href="fleisch.html">vormerken lassen</a>.</p>
+            </div>
+        </div>
+
+        <section class="section section-dark">
+            <div class="container narrow">
+                <div class="rule"></div>
                 <h2>Unser Betrieb</h2>
                 <p>
                     Wir betreiben eine Wagyu-Mutterkuhhaltung in der Hallertau. Im Mittelpunkt stehen für uns
-                    Tierwohl, eine stressarme Aufzucht und ein verantwortungsvoller Umgang mit unseren Tieren.
+                    Tierwohl, eine stressarme Aufzucht und eine naturnahe Haltung.
+                </p>
+                <p>
+                    Hallertau Wagyu steht für einen kleinen, persönlichen Betrieb mit klarer Haltung –
+                    ruhig, bodenständig und mit Blick auf das Wesentliche.
                 </p>
             </div>
         </section>
 
-        <section class="content-section alt-section">
+        <section class="section section-mid">
             <div class="container">
-                <h2>Wagyu</h2>
-                <p>
-                    Wagyu steht für eine besondere Fleischqualität und feine Marmorierung. Die Grundlage dafür
-                    sind gute Genetik, Zeit, hochwertige Fütterung und eine ruhige Haltung.
-                </p>
+                <div class="pillars">
+                    <div class="pillar">
+                        <span class="pillar-num">01</span>
+                        <h3>Tierwohl</h3>
+                        <p>
+                            Unsere Tiere wachsen in einer ruhigen Umgebung
+                            mit Weidegang und viel Sorgfalt auf.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-num">02</span>
+                        <h3>Wagyu</h3>
+                        <p>
+                            Wagyu steht für besondere Fleischqualität, feine
+                            Marmorierung und eine hochwertige Aufzucht.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-num">03</span>
+                        <h3>Verantwortung</h3>
+                        <p>
+                            Gesunde Tiere, nachhaltige Bewirtschaftung und
+                            ein ehrlicher Auftritt nach außen.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="content-section">
+        <section class="section section-dark">
             <div class="container">
-                <h2>Kontakt</h2>
-                <p>
-                    Sie interessieren sich für unseren Betrieb oder haben Fragen rund um unsere Wagyu-Rinder?
-                    Nehmen Sie gerne Kontakt mit uns auf.
-                </p>
-                <p>
-                    <strong>Hallertau Wagyu</strong><br>
-                    Robert Riedmaier<br>
-                    Brünnlweg 7<br>
-                    85405 Nandlstadt<br>
-                    Telefon: +49-8756-8664014<br>
-                    E-Mail: info@hallertau-wagyu.de
-                </p>
+                <div class="split">
+                    <div>
+                        <div class="rule"></div>
+                        <h2>Fleischverkauf</h2>
+                        <p>
+                            Informationen zu verfügbarem Wagyu-Fleisch und
+                            Kontakt zur Anfrage finden Sie auf unserer
+                            Fleischverkaufsseite.
+                        </p>
+                        <a class="button" href="fleisch.html">Mehr erfahren</a>
+                    </div>
+                    <div>
+                        <div class="rule"></div>
+                        <h2>Kontakt</h2>
+                        <p>
+                            Sie haben Fragen zu unserem Betrieb oder zum
+                            Fleischverkauf? Wir freuen uns über Ihre
+                            Kontaktaufnahme.
+                        </p>
+                        <div class="contact-block">
+                            <p>
+                                Hallertau Wagyu · Robert Riedmaier<br>
+                                Brünnlweg 7 · 85405 Nandlstadt<br>
+                                <a href="tel:+4987568664014">+49 8756 8664014</a><br>
+                                <a href="mailto:info@hallertau-wagyu.de">info@hallertau-wagyu.de</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="container">
+        <div class="container footer-flex">
             <p>&copy; 2026 Hallertau Wagyu</p>
             <p>
-                <a href="impressum.html">Impressum</a> |
-                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>&ensp;&middot;&ensp;<a href="datenschutz.html">Datenschutz</a>
             </p>
         </div>
     </footer>
+
 </body>
 </html>

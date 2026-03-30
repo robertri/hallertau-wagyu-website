@@ -8,49 +8,106 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header class="site-header">
-        <div class="container">
-            <div class="brand">
-                <h1>Hallertau Wagyu</h1>
-                <p>Wagyu Rinderzucht aus der Hallertau</p>
-            </div>
+        <div class="container header-flex">
+            <a href="index.html" class="brand-link">
+                <div class="brand">
+                    <h1>Hallertau Wagyu</h1>
+                    <p>Wagyu Rinderzucht aus der Hallertau</p>
+                </div>
+            </a>
             <nav class="site-nav">
                 <a href="index.html">Start</a>
                 <a href="betrieb.html">Betrieb</a>
-                <a href="wagyu.html">Wagyu</a>
+                <a href="wagyu.html" aria-current="page">Wagyu</a>
+                <a href="fleisch.html">Fleischverkauf</a>
                 <a href="kontakt.html">Kontakt</a>
             </nav>
+            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="content-section">
-            <div class="container">
-                <h2>Wagyu</h2>
-                <p>
-                    Wagyu ist eine Rinderrasse, die weltweit für ihre besondere Fleischqualität und feine Marmorierung bekannt ist.
-                    Die Grundlage dafür sind gute Genetik, Zeit, eine hochwertige Fütterung und eine ruhige Haltung.
-                </p>
-                <p>
-                    Für uns steht dabei nicht nur das Endprodukt im Vordergrund, sondern vor allem die verantwortungsvolle Aufzucht
-                    und ein respektvoller Umgang mit den Tieren.
-                </p>
-                <p>
-                    Qualität entsteht aus vielen Faktoren: gesunde Tiere, passende Haltungsbedingungen, Geduld und tägliche Sorgfalt.
-                    Genau darauf legen wir bei Hallertau Wagyu großen Wert.
+
+        <section class="hero-page">
+            <div class="container narrow">
+                <span class="eyebrow">Die Rasse</span>
+                <h2>Wagyu – Qualität &amp; Sorgfalt</h2>
+                <p class="hero-lead">
+                    Wagyu ist weltweit für ihre feine Marmorierung und außergewöhnliche
+                    Fleischqualität bekannt. Die Grundlage: gute Genetik, Zeit und tägliche Sorgfalt.
                 </p>
             </div>
         </section>
+
+        <section class="section section-dark">
+            <div class="container narrow">
+                <div class="rule"></div>
+                <h2>Was Wagyu besonders macht</h2>
+                <p>
+                    Wagyu-Rinder zeichnen sich durch eine einzigartige intramuskuläre Fettverteilung aus,
+                    die dem Fleisch seine charakteristische Marmorierung verleiht. Dieses Fett hat einen
+                    besonders hohen Anteil an ungesättigten Fettsäuren und sorgt für ein zartes,
+                    aromatisches Geschmackserlebnis.
+                </p>
+                <p>
+                    Für uns steht dabei nicht nur das Endprodukt im Vordergrund, sondern vor allem die
+                    verantwortungsvolle Aufzucht und ein respektvoller Umgang mit den Tieren.
+                    Qualität entsteht aus vielen Faktoren: gesunde Tiere, passende Haltungsbedingungen,
+                    Geduld und tägliche Sorgfalt.
+                </p>
+            </div>
+        </section>
+
+        <section class="section section-mid">
+            <div class="container">
+                <div class="pillars">
+                    <div class="pillar">
+                        <span class="pillar-num">01</span>
+                        <h3>Feine Marmorierung</h3>
+                        <p>
+                            Die intramuskuläre Fettverteilung verleiht dem
+                            Wagyu-Fleisch seine typische Marmorierung und
+                            einen unverwechselbaren, zarten Geschmack.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-num">02</span>
+                        <h3>Hochwertige Genetik</h3>
+                        <p>
+                            Gute Genetik ist die Basis für Fleischqualität.
+                            Wir setzen auf bewährte Wagyu-Linien und eine
+                            sorgfältige Zuchtauswahl.
+                        </p>
+                    </div>
+                    <div class="pillar">
+                        <span class="pillar-num">03</span>
+                        <h3>Zeit &amp; Geduld</h3>
+                        <p>
+                            Wagyu braucht Zeit. Die längere Aufzuchtdauer
+                            ist bewusst – denn echte Qualität lässt sich
+                            nicht beschleunigen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="container">
+        <div class="container footer-flex">
             <p>&copy; 2026 Hallertau Wagyu</p>
             <p>
-                <a href="impressum.html">Impressum</a> |
-                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>&ensp;&middot;&ensp;<a href="datenschutz.html">Datenschutz</a>
             </p>
         </div>
     </footer>
+
 </body>
 </html>

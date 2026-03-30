@@ -1,95 +1,701 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallertau Wagyu</title>
-    <meta name="description" content="Wagyu Rinderzucht aus der Hallertau. Informationen zu unserem Betrieb, unserer Haltung und Kontaktmöglichkeiten.">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <div class="brand">
-                <h1>Hallertau Wagyu</h1>
-                <p>Wagyu Rinderzucht aus der Hallertau</p>
-            </div>
-            <nav class="site-nav">
-                <a href="index.html">Start</a>
-                <a href="betrieb.html">Betrieb</a>
-                <a href="wagyu.html">Wagyu</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-        </div>
-    </header>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h2>Wagyu mit Fokus auf Qualität, Tierwohl und nachhaltige Haltung</h2>
-                <p>
-                    Auf unserem Betrieb in der Hallertau widmen wir uns der Zucht und Haltung von Wagyu-Rindern
-                    mit viel Ruhe, Weidegang und hoher Sorgfalt.
-                </p>
-                <a class="button" href="kontakt.html">Jetzt Kontakt aufnehmen</a>
-            </div>
-        </section>
+/* ─────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+───────────────────────────────────────── */
+:root {
+    --header-height: 108px;
+}
 
-        <section class="content-section">
-            <div class="container">
-                <h2>Unser Betrieb</h2>
-                <p>
-                    Wir betreiben eine Wagyu-Mutterkuhhaltung in der Hallertau. Im Mittelpunkt stehen für uns
-                    Tierwohl, eine stressarme Aufzucht und ein verantwortungsvoller Umgang mit unseren Tieren.
-                </p>
-            </div>
-        </section>
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        <section class="content-section alt-section">
-            <div class="container">
-                <h2>Wagyu</h2>
-                <p>
-                    Wagyu steht für eine besondere Fleischqualität und feine Marmorierung. Die Grundlage dafür
-                    sind gute Genetik, Zeit, hochwertige Fütterung und eine ruhige Haltung.
-                </p>
-            </div>
-        </section>
+html {
+    scroll-behavior: smooth;
+}
 
-        <section class="content-section">
-            <div class="container">
-                <h2>Kontakt</h2>
-                <p>
-                    Sie interessieren sich für unseren Betrieb oder haben Fragen rund um unsere Wagyu-Rinder?
-                    Nehmen Sie gerne Kontakt mit uns auf.
-                </p>
-                <p>
-                    <strong>Hallertau Wagyu</strong><br>
-                    Robert Riedmaier<br>
-                    Straße / Hausnummer<br>
-                    PLZ Ort<br>
-                    Telefon: [bitte ergänzen]<br>
-                    E-Mail: [bitte ergänzen]
-                </p>
-            </div>
-        </section>
-    </main>
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #d4cfc8;
+    background-color: #0e0e0e;
+}
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 Hallertau Wagyu</p>
-            <p>
-                <a href="impressum.html">Impressum</a> |
-                <a href="datenschutz.html">Datenschutz</a>
-            </p>
-        </div>
-    </footer>
-</body>
-</html>
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #f0ece6;
+    letter-spacing: 0.02em;
+}
+
+h2 {
+    font-size: 2.6rem;
+    margin-bottom: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.9rem;
+}
+
+p {
+    margin-bottom: 1.4rem;
+    color: #b8b0a6;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────── */
+.container {
+    width: 88%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.narrow {
+    max-width: 720px;
+}
+
+/* ─────────────────────────────────────────
+   HEADER & NAV
+───────────────────────────────────────── */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #0e0e0e;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 28px 0;
+    transition: background-color 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.site-header.scrolled {
+    background-color: rgba(14, 14, 14, 0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom-color: #2a2a2a;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.brand h1 {
+    font-size: 1.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f0ece6;
+    margin-bottom: 0;
+}
+
+.brand p {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #4a4a4a;
+    margin-bottom: 0;
+}
+
+.brand-link {
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.brand-link:hover {
+    opacity: 0.75;
+}
+
+.site-nav {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+}
+
+.site-nav a {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a9188;
+    transition: color 0.2s;
+}
+
+.site-nav a:hover {
+    color: #c9a84c;
+}
+
+.site-nav a[aria-current="page"] {
+    color: #c9a84c;
+}
+
+/* ─────────────────────────────────────────
+   HERO – INDEX
+───────────────────────────────────────── */
+.hero-main {
+    background-color: #0b0b0b;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px 60px;
+    border-bottom: 1px solid #1a1a1a;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle grain texture over flat background */
+.hero-main::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    opacity: 0.055;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Hero content wrapper — all hero elements in one flex column */
+.hero-main .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: none;
+}
+
+/* Hero logo — transparent PNG */
+.hero-main .hero-logo {
+    display: block;
+    width: 1100px !important;
+    max-width: 92vw !important;
+    height: auto !important;
+    margin: 0 0 4px 0 !important;
+    flex: 0 0 auto;
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #c9a84c;
+    display: block;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.2;
+}
+
+.hero-main h2 {
+    font-size: 4rem;
+    color: #f0ece6;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.15;
+}
+
+.hero-sub {
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    color: #7a7268;
+    max-width: 520px;
+    line-height: 1.9;
+    margin: 0 0 18px 0 !important;
+}
+
+/* ─────────────────────────────────────────
+   CONTENT PAGES (Datenschutz, Impressum)
+───────────────────────────────────────── */
+.content-section {
+    padding: calc(var(--header-height) + 64px) 0 100px;
+}
+
+.content-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+
 .content-section h3 {
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 2.4rem;
+    margin-bottom: 0.8rem;
+    color: #d4cfc8;
 }
 
 .content-section p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    max-width: 680px;
+}
+
+/* ─────────────────────────────────────────
+   HERO – INNER PAGES
+───────────────────────────────────────── */
+.hero-page {
+    background-color: #111111;
+    border-bottom: 1px solid #1e1e1e;
+    padding: calc(var(--header-height) + 56px) 0 90px;
+}
+
+.hero-page h2 {
+    font-size: 3rem;
+    color: #f0ece6;
+    margin-bottom: 24px;
+}
+
+.hero-page .hero-lead {
+    font-size: 0.95rem;
+    color: #7a7268;
+    max-width: 560px;
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+}
+
+/* ─────────────────────────────────────────
+   ANNOUNCEMENT BAR
+───────────────────────────────────────── */
+.announcement-bar {
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 13px 0;
+    text-align: center;
+}
+
+.announcement-bar p {
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    color: #7a7268;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+.announcement-bar a {
+    color: #c9a84c;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+}
+
+.announcement-bar a:hover {
+    opacity: 0.75;
+}
+
+/* ─────────────────────────────────────────
+   NOTICE BOX
+───────────────────────────────────────── */
+.notice-box {
+    border: 1px solid #252525;
+    border-left: 3px solid #c9a84c;
+    padding: 44px 48px;
+    background-color: #111111;
+}
+
+.notice-box .eyebrow {
+    display: block;
     margin-bottom: 18px;
+}
+
+.notice-box h2 {
+    font-size: 1.85rem;
+    margin-bottom: 1.4rem;
+}
+
+.notice-box p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    max-width: 620px;
+}
+
+.notice-contact {
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notice-contact p {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: #6a6258;
+    margin-bottom: 0;
+}
+
+.notice-contact a {
+    color: #c9a84c;
+    transition: opacity 0.2s;
+}
+
+.notice-contact a:hover {
+    opacity: 0.75;
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.button-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 36px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #f0ece6;
+    border: 1px solid #c9a84c;
+    background: transparent;
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #c9a84c;
+    border-color: #c9a84c;
+    color: #0a0a0a;
+}
+
+.button-ghost {
+    border-color: #3a3a3a;
+    color: #9a9188;
+}
+
+.button-ghost:hover {
+    background-color: #c9a84c;
+    border-color: #c9a84c;
+    color: #0a0a0a;
+}
+
+/* ─────────────────────────────────────────
+   SECTIONS
+───────────────────────────────────────── */
+.section {
+    padding: 110px 0;
+}
+
+.section-dark {
+    background-color: #0e0e0e;
+}
+
+.section-mid {
+    background-color: #111111;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.section h2 {
+    margin-bottom: 1.6rem;
+}
+
+.section p {
+    font-size: 0.95rem;
+    line-height: 1.9;
+    max-width: 680px;
+}
+
+/* ─────────────────────────────────────────
+   GOLD RULE DIVIDER
+───────────────────────────────────────── */
+.rule {
+    width: 48px;
+    height: 1px;
+    background-color: #c9a84c;
+    margin-bottom: 40px;
+}
+
+/* ─────────────────────────────────────────
+   THREE-COLUMN TEXT PILLARS (no icons, no boxes)
+───────────────────────────────────────── */
+.pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+}
+
+.pillar-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.4rem;
+    color: #222222;
+    margin-bottom: 20px;
+    display: block;
+    line-height: 1;
+}
+
+.pillar h3 {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f0ece6;
+    margin-bottom: 14px;
+}
+
+.pillar p {
+    font-size: 0.88rem;
+    color: #7a7268;
+    max-width: none;
+    line-height: 1.9;
+}
+
+/* ─────────────────────────────────────────
+   SPLIT LAYOUT
+───────────────────────────────────────── */
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+}
+
+/* ─────────────────────────────────────────
+   CONTACT BLOCK
+───────────────────────────────────────── */
+.contact-block {
+    border-top: 1px solid #2a2a2a;
+    padding-top: 52px;
+}
+
+.contact-block p {
+    font-size: 0.9rem;
+    line-height: 2.2;
+    color: #9a9188;
+}
+
+.contact-block a {
+    color: #c9a84c;
+    transition: opacity 0.2s;
+}
+
+.contact-block a:hover {
+    opacity: 0.75;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.site-footer {
+    background-color: #0a0a0a;
+    border-top: 1px solid #1e1e1e;
+    padding: 36px 0;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.site-footer p,
+.site-footer a {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #4a4a4a;
+}
+
+.site-footer a:hover {
+    color: #9a9188;
+}
+
+/* ─────────────────────────────────────────
+   SCROLL MARGIN (fixed header offset)
+───────────────────────────────────────── */
+[id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+}
+
+/* ─────────────────────────────────────────
+   NAV TOGGLE (hamburger)
+───────────────────────────────────────── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
+    z-index: 101;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background-color: #f0ece6;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+.site-header.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.site-header.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+    .pillars,
+    .split {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-main h2 {
+        font-size: 2.8rem;
+    }
+
+    .hero-page h2 {
+        font-size: 2.2rem;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+}
+
+@media (max-width: 720px) {
+    :root {
+        --header-height: 72px;
+    }
+
+    .site-header {
+        padding: 18px 0;
+    }
+
+    .brand p {
+        display: none;
+    }
+
+    .brand h1 {
+        font-size: 1.2rem;
+    }
+
+    /* Show hamburger, hide desktop nav */
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Mobile nav: full-screen overlay, hidden by default */
+    .site-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        height: -webkit-fill-available; /* iOS Safari dynamic viewport */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: calc(var(--header-height) + 24px) 0 40px;
+        background-color: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 99; /* below header (z-index:100) so toggle stays clickable */
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .site-nav a {
+        padding: 16px 0;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .site-header.nav-open .site-nav {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Prevent body scroll while mobile menu is open (iOS Safari fix) */
+    body.nav-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    .hero-main h2 {
+        font-size: 2.1rem;
+    }
+
+    .hero-page {
+        padding: calc(var(--header-height) + 40px) 0 64px;
+    }
+
+    .hero-page h2 {
+        font-size: 1.9rem;
+    }
+
+    .notice-box {
+        padding: 28px 24px;
+    }
 }

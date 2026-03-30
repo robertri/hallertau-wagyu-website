@@ -8,54 +8,74 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header class="site-header">
-        <div class="container">
-            <div class="brand">
-                <h1>Hallertau Wagyu</h1>
-                <p>Wagyu Rinderzucht aus der Hallertau</p>
-            </div>
+        <div class="container header-flex">
+            <a href="index.html" class="brand-link">
+                <div class="brand">
+                    <h1>Hallertau Wagyu</h1>
+                    <p>Wagyu Rinderzucht aus der Hallertau</p>
+                </div>
+            </a>
             <nav class="site-nav">
                 <a href="index.html">Start</a>
                 <a href="betrieb.html">Betrieb</a>
                 <a href="wagyu.html">Wagyu</a>
-                <a href="kontakt.html">Kontakt</a>
+                <a href="fleisch.html">Fleischverkauf</a>
+                <a href="kontakt.html" aria-current="page">Kontakt</a>
             </nav>
+            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="content-section">
-            <div class="container">
-                <h2>Kontakt</h2>
-                <p>
-                    Sie haben Fragen zu unserem Betrieb, zu unseren Wagyu-Rindern oder zu aktuellen Informationen?
-                    Dann freuen wir uns über Ihre Kontaktaufnahme.
-                </p>
 
-                <p>
-                    <strong>Hallertau Wagyu</strong><br>
-                    Robert Riedmaier<br>
-                    Brünnlweg 7<br>
-                    85405 Nandlstadt
+        <section class="hero-page">
+            <div class="container narrow">
+                <span class="eyebrow">Kontakt</span>
+                <h2>Wir freuen uns von Ihnen zu hören</h2>
+                <p class="hero-lead">
+                    Bei Fragen zu unserem Betrieb, unseren Wagyu-Rindern oder
+                    zum Fleischverkauf nehmen Sie gerne direkt Kontakt auf.
                 </p>
-
-                <p>
-                    <strong>Telefon:</strong> +49-8756-8664014<br>
-                    <strong>E-Mail:</strong> info@hallertau-wagyu.de
-                </p>
-
             </div>
         </section>
+
+        <section class="section section-dark">
+            <div class="container narrow">
+                <div class="rule"></div>
+                <h2>Erreichbarkeit</h2>
+                <p>
+                    Wir sind ein kleiner Familienbetrieb. Am zuverlässigsten
+                    erreichen Sie uns per Telefon oder E-Mail.
+                </p>
+                <div class="contact-block">
+                    <p>
+                        <strong style="color:#f0ece6; font-weight:400;">Hallertau Wagyu</strong><br>
+                        Robert Riedmaier<br>
+                        Brünnlweg 7<br>
+                        85405 Nandlstadt<br><br>
+                        <a href="tel:+4987568664014">+49 8756 8664014</a><br>
+                        <a href="mailto:info@hallertau-wagyu.de">info@hallertau-wagyu.de</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
-        <div class="container">
+        <div class="container footer-flex">
             <p>&copy; 2026 Hallertau Wagyu</p>
             <p>
-                <a href="impressum.html">Impressum</a> |
-                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>&ensp;&middot;&ensp;<a href="datenschutz.html">Datenschutz</a>
             </p>
         </div>
     </footer>
+
 </body>
 </html>
