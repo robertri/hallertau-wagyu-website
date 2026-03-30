@@ -15,26 +15,28 @@
     onScroll();
 
     // ── Mobile nav toggle ─────────────────────────────────────────
-    const toggle = header.querySelector('.nav-toggle');
-    const nav = header.querySelector('.site-nav');
-    if (!toggle || !nav) return;
+    // The .mobile-menu lives outside <header> in the DOM to avoid
+    // the iOS Safari "fixed-inside-fixed" rendering bug.
+    const toggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!toggle || !mobileMenu) return;
 
     var savedScrollY = 0;
 
     function openMenu() {
-        // Save scroll position before locking body (iOS Safari fix)
         savedScrollY = window.scrollY || window.pageYOffset;
         document.body.style.top = '-' + savedScrollY + 'px';
-        header.classList.add('nav-open');
-        document.body.classList.add('nav-open');
+        document.body.classList.add('menu-open');
+        mobileMenu.classList.add('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'false');
         toggle.setAttribute('aria-expanded', 'true');
         toggle.setAttribute('aria-label', 'Menü schließen');
     }
 
     function closeMenu() {
-        header.classList.remove('nav-open');
-        document.body.classList.remove('nav-open');
-        // Restore scroll position after releasing body lock
+        document.body.classList.remove('menu-open');
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
         document.body.style.top = '';
         window.scrollTo(0, savedScrollY);
         toggle.setAttribute('aria-expanded', 'false');
@@ -43,21 +45,16 @@
 
     toggle.addEventListener('click', function (e) {
         e.stopPropagation();
-        header.classList.contains('nav-open') ? closeMenu() : openMenu();
+        mobileMenu.classList.contains('is-open') ? closeMenu() : openMenu();
     });
 
-    // Close when a nav link is tapped
-    nav.querySelectorAll('a').forEach(function (link) {
+    // Close when any nav link inside the overlay is tapped
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', closeMenu);
     });
 
-    // Close when tapping the overlay background (not a link)
-    nav.addEventListener('click', function (e) {
-        if (e.target === nav) closeMenu();
-    });
-
-    // Close when Escape is pressed
+    // Close on Escape
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeMenu();
+        if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) closeMenu();
     });
 }());

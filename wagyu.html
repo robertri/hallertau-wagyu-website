@@ -24,13 +24,21 @@
                 <a href="fleisch.html">Fleischverkauf</a>
                 <a href="kontakt.html">Kontakt</a>
             </nav>
-            <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+            <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </header>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Hauptnavigation" aria-hidden="true">
+        <a href="index.html">Start</a>
+        <a href="betrieb.html">Betrieb</a>
+        <a href="wagyu.html" aria-current="page">Wagyu</a>
+        <a href="fleisch.html">Fleischverkauf</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
 
     <main>
 
@@ -109,5 +117,6 @@
         </div>
     </footer>
 
+    <script src="js/script.js"></script>
 </body>
 </html>

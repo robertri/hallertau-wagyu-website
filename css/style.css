@@ -90,7 +90,7 @@ p:last-child {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 300; /* above mobile-menu overlay (200) */
     background-color: #0e0e0e;
     border-bottom: 1px solid #1e1e1e;
     padding: 28px 0;
@@ -290,32 +290,60 @@ p:last-child {
 }
 
 /* ─────────────────────────────────────────
-   ANNOUNCEMENT BAR
+   TICKER (scrolling announcement bar)
 ───────────────────────────────────────── */
-.announcement-bar {
+@keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.ticker {
+    overflow: hidden;
     background-color: #0f0f0f;
     border-bottom: 1px solid #1e1e1e;
-    padding: 13px 0;
-    text-align: center;
+    padding: 11px 0;
+    cursor: default;
+    margin-top: var(--header-height); /* clear the fixed header */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 6%,
+        #000 94%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 6%,
+        #000 94%,
+        transparent 100%
+    );
 }
 
-.announcement-bar p {
-    font-size: 0.76rem;
-    letter-spacing: 0.08em;
-    color: #7a7268;
-    margin-bottom: 0;
-    line-height: 1.6;
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 38s linear infinite;
+    will-change: transform;
 }
 
-.announcement-bar a {
+.ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    white-space: nowrap;
+    padding: 0 4rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6a6258;
+}
+
+.ticker-item .ticker-sep {
+    margin: 0 1.4rem;
     color: #c9a84c;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: opacity 0.2s;
-}
-
-.announcement-bar a:hover {
-    opacity: 0.75;
+    font-style: normal;
 }
 
 /* ─────────────────────────────────────────
@@ -553,9 +581,9 @@ p:last-child {
 }
 
 /* ─────────────────────────────────────────
-   NAV TOGGLE (hamburger)
+   MENU TOGGLE (hamburger)
 ───────────────────────────────────────── */
-.nav-toggle {
+.menu-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -567,10 +595,11 @@ p:last-child {
     cursor: pointer;
     padding: 4px;
     flex-shrink: 0;
-    z-index: 101;
+    /* No explicit z-index needed: header (z-index:300) sits
+       above the mobile-menu overlay (z-index:200) */
 }
 
-.nav-toggle span {
+.menu-toggle span {
     display: block;
     width: 22px;
     height: 1px;
@@ -579,17 +608,23 @@ p:last-child {
     transform-origin: center;
 }
 
-.site-header.nav-open .nav-toggle span:nth-child(1) {
+/* X icon while menu is open */
+body.menu-open .menu-toggle span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
 
-.site-header.nav-open .nav-toggle span:nth-child(2) {
+body.menu-open .menu-toggle span:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
 }
 
-.site-header.nav-open .nav-toggle span:nth-child(3) {
+body.menu-open .menu-toggle span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile overlay — hidden on desktop, activated via JS */
+.mobile-menu {
+    display: none;
 }
 
 /* ─────────────────────────────────────────
@@ -632,29 +667,32 @@ p:last-child {
         font-size: 1.2rem;
     }
 
-    /* Show hamburger, hide desktop nav */
-    .nav-toggle {
+    /* Show burger button; desktop nav hidden on mobile */
+    .menu-toggle {
         display: flex;
     }
 
-    /* Mobile nav: full-screen overlay, hidden by default */
     .site-nav {
+        display: none;
+    }
+
+    /* ── Mobile overlay menu ──────────────────────────────────────
+       Lives outside <header> in the DOM to avoid the iOS Safari
+       "fixed-inside-fixed" rendering bug. Header z-index:300 keeps
+       the toggle button always above the overlay (z-index:200).
+    ─────────────────────────────────────────────────────────────── */
+    .mobile-menu {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         height: 100vh;
-        height: -webkit-fill-available; /* iOS Safari dynamic viewport */
+        height: -webkit-fill-available; /* iOS dynamic viewport */
+        z-index: 200;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 0;
-        padding: calc(var(--header-height) + 24px) 0 40px;
-        background-color: rgba(10, 10, 10, 0.97);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: 99; /* below header (z-index:100) so toggle stays clickable */
+        background-color: #0a0a0a;
         visibility: hidden;
         opacity: 0;
         pointer-events: none;
@@ -663,21 +701,35 @@ p:last-child {
         -webkit-overflow-scrolling: touch;
     }
 
-    .site-nav a {
-        padding: 16px 0;
-        font-size: 0.85rem;
-        width: 100%;
-        text-align: center;
-    }
-
-    .site-header.nav-open .site-nav {
+    .mobile-menu.is-open {
         visibility: visible;
         opacity: 1;
         pointer-events: auto;
     }
 
+    .mobile-menu a {
+        display: block;
+        padding: 16px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #9a9188;
+        transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a:active {
+        color: #c9a84c;
+    }
+
+    .mobile-menu a[aria-current="page"] {
+        color: #c9a84c;
+    }
+
     /* Prevent body scroll while mobile menu is open (iOS Safari fix) */
-    body.nav-open {
+    body.menu-open {
         overflow: hidden;
         position: fixed;
         width: 100%;
