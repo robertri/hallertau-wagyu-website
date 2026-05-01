@@ -115,7 +115,7 @@ p:last-child {
     font-size: 1.55rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #f0ece6;
+    color: #c9a84c;
     margin-bottom: 0;
 }
 
@@ -123,7 +123,7 @@ p:last-child {
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #4a4a4a;
+    color: #8a7e60;
     margin-bottom: 0;
 }
 
@@ -147,7 +147,7 @@ p:last-child {
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #9a9188;
+    color: #c8c2ba;
     transition: color 0.2s;
 }
 
@@ -236,7 +236,7 @@ p:last-child {
 .hero-sub {
     font-size: 0.95rem;
     letter-spacing: 0.04em;
-    color: #7a7268;
+    color: #9a9188;
     max-width: 520px;
     line-height: 1.9;
     margin: 0 0 18px 0 !important;
@@ -283,7 +283,7 @@ p:last-child {
 
 .hero-page .hero-lead {
     font-size: 0.95rem;
-    color: #7a7268;
+    color: #9a9188;
     max-width: 560px;
     line-height: 1.9;
     letter-spacing: 0.02em;
@@ -337,7 +337,8 @@ p:last-child {
     font-size: 0.74rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #6a6258;
+    color: #9a9188;
+    font-weight: 400;
 }
 
 .ticker-item .ticker-sep {
@@ -384,7 +385,7 @@ p:last-child {
 .notice-contact p {
     font-size: 0.82rem;
     letter-spacing: 0.04em;
-    color: #6a6258;
+    color: #8a8278;
     margin-bottom: 0;
 }
 
@@ -506,7 +507,7 @@ p:last-child {
 
 .pillar p {
     font-size: 0.88rem;
-    color: #7a7268;
+    color: #9a9188;
     max-width: none;
     line-height: 1.9;
 }
@@ -588,7 +589,7 @@ p:last-child {
     font-size: 0.68rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #4a4a4a;
+    color: #9a9188;
     transition: color 0.2s;
 }
 
@@ -597,12 +598,12 @@ p:last-child {
 }
 
 .lang-switch .lang-active {
-    color: #9a9188;
+    color: #c8c2ba;
     cursor: default;
 }
 
 .lang-switch .lang-sep {
-    color: #2a2a2a;
+    color: #4a4a4a;
 }
 
 /* ─────────────────────────────────────────
