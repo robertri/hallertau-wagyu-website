@@ -22,10 +22,10 @@ html {
 
 body {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.8;
-    color: #d4cfc8;
+    color: #e5e5e5;
     background-color: #0e0e0e;
 }
 
@@ -48,6 +48,7 @@ h1, h2, h3, h4 {
     line-height: 1.2;
     color: #f0ece6;
     letter-spacing: 0.02em;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 h2 {
@@ -62,7 +63,8 @@ h3 {
 
 p {
     margin-bottom: 1.4rem;
-    color: #b8b0a6;
+    color: #ccc8c2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 p:last-child {
@@ -123,7 +125,7 @@ p:last-child {
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #8a7e60;
+    color: #a09060;
     margin-bottom: 0;
 }
 
@@ -220,7 +222,7 @@ p:last-child {
     font-weight: 500;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #c9a84c;
+    color: #d4af37;
     display: block;
     margin: 0 0 4px 0 !important;
     line-height: 1.2;
@@ -236,7 +238,7 @@ p:last-child {
 .hero-sub {
     font-size: 0.95rem;
     letter-spacing: 0.04em;
-    color: #9a9188;
+    color: #b8b4ae;
     max-width: 520px;
     line-height: 1.9;
     margin: 0 0 18px 0 !important;
@@ -257,7 +259,7 @@ p:last-child {
 .content-section h3 {
     margin-top: 2.4rem;
     margin-bottom: 0.8rem;
-    color: #d4cfc8;
+    color: #e5e5e5;
 }
 
 .content-section p {
@@ -283,7 +285,7 @@ p:last-child {
 
 .hero-page .hero-lead {
     font-size: 0.95rem;
-    color: #9a9188;
+    color: #b8b4ae;
     max-width: 560px;
     line-height: 1.9;
     letter-spacing: 0.02em;
@@ -337,7 +339,7 @@ p:last-child {
     font-size: 0.74rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #9a9188;
+    color: #a8a49e;
     font-weight: 400;
 }
 
@@ -385,7 +387,7 @@ p:last-child {
 .notice-contact p {
     font-size: 0.82rem;
     letter-spacing: 0.04em;
-    color: #8a8278;
+    color: #a09890;
     margin-bottom: 0;
 }
 
@@ -507,7 +509,7 @@ p:last-child {
 
 .pillar p {
     font-size: 0.88rem;
-    color: #9a9188;
+    color: #b0aca6;
     max-width: none;
     line-height: 1.9;
 }
@@ -533,7 +535,7 @@ p:last-child {
 .contact-block p {
     font-size: 0.9rem;
     line-height: 2.2;
-    color: #9a9188;
+    color: #b0aca6;
 }
 
 .contact-block a {
@@ -567,11 +569,38 @@ p:last-child {
     font-size: 0.68rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #4a4a4a;
+    color: #706c66;
 }
 
 .site-footer a:hover {
-    color: #9a9188;
+    color: #c8c4be;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    color: #706c66;
+    line-height: 0;
+    transition: color 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+    outline: none;
+}
+
+.footer-social a:hover {
+    color: #c99a3a;
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 4px rgba(201, 154, 58, 0.55));
+}
+
+.footer-social a:focus-visible {
+    color: #c99a3a;
+    outline: 1px solid rgba(201, 154, 58, 0.6);
+    outline-offset: 3px;
+    border-radius: 2px;
 }
 
 /* ─────────────────────────────────────────
@@ -589,7 +618,7 @@ p:last-child {
     font-size: 0.68rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #9a9188;
+    color: #a8a49e;
     transition: color 0.2s;
 }
 
